@@ -15,6 +15,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $perPage=7;
+        $all= Category::orderBy('created_at')->paginate($perPage);
+        return view('category.index',['all'=>$all]);
     }
 
     /**
@@ -25,6 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('category.create');
     }
 
     /**
@@ -36,6 +40,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $c= new Category();
+        $c->name=$request->name;
+        $c->save();
+        session()->flash('success','La categorie est ajoutée avec succés');
+        return redirect('category');
     }
 
     /**
@@ -58,6 +67,7 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -70,6 +80,10 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
+        $category->update($request->all());
+        session()->flash('success','La categorie a été bien modifiée');
+        return redirect('category');
+
     }
 
     /**
@@ -81,5 +95,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->delete();
+        session()->flash('success','La categorie a été bien supprimée');
+        return redirect('category');
     }
 }
