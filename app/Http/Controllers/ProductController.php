@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $perPage=7;
+
         $all = DB::table('products')
             ->join('categories', 'categories.id', '=', 'products.category_id')
             ->select('products.*')
