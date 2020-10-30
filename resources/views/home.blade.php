@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -37,35 +36,9 @@
                             </div>
                         </div>
 
-                        @yield('contenu')
-<br>
-                            <h1 class="text-center">Vos produits</h1><br>
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name Product</th>
-                                    <th scope="col">Created_at</th>
-                                    <th scope="col">Updated_at</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach( $all as $prod)
-                                    <tr>
-                                        <th scope="row">{{$prod->id}}</th>
-                                        <td>{{$prod->name}}</td>
-                                        <td>{{$prod->created_at}}</td>
-                                        <td>{{$prod->updated_at}}</td>
-
-                                    </tr>
-                                @endforeach
 
 
-                                </tbody>
-                            </table>
-
+                            @yield('contenu')
                     </div>
                 </div>
             </div>

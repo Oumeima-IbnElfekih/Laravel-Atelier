@@ -24,12 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {       $id = Auth::id();
-        $all = DB::table('products')
+        $prod = DB::table('products')
             ->join('user_products', 'user_products.product_id', '=', 'products.id')
             ->join('users', 'user_products.user_id', '=', 'users.id')
             ->where('user_products.user_id', '=', $id)
             ->select('products.*')
             ->get();
-        return view('home',['all'=>$all]);
+        return view('home',['prod'=>$prod]);
     }
 }
