@@ -37,7 +37,33 @@
                         </div>
 
 
+                            <br>
+                            <h1 class="text-center">Vos produits</h1><br>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name Product</th>
+                                    <th scope="col">Created_at</th>
+                                    <th scope="col">Updated_at</th>
 
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach( $prod as $pro)
+                                    <tr>
+                                        <th scope="row">{{$pro->id}}</th>
+                                        <td>{{$pro->name}}</td>
+                                        <td>{{$pro->created_at}}</td>
+                                        <td>{{$pro->updated_at}}</td>
+
+                                    </tr>
+                                @endforeach
+
+
+                                </tbody>
+                            </table>
                             @yield('contenu')
                     </div>
                 </div>

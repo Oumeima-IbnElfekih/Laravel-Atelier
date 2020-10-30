@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -43,8 +44,13 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(ProductRequest $request)
+    {   $p= new Product();
+        $p->name=$request->name;
+        $p->category_id=$request->category_id;
+        $p->save();
+        session()->flash('success','Le produit est ajouté avec succés');
+        return redirect('product');
 
     }
 

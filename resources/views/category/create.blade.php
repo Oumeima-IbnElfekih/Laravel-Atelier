@@ -24,7 +24,7 @@
         @csrf
         <div class="form-group mx-sm-3 mb-2">
             <label for="inputPassword2" class="sr-only">Nom de la catégorie</label>
-            <input name="name" type="text" class="form-control"  placeholder="Nom de la catégorie">
+            <input name="name" type="text" class="form-control"  placeholder="Nom de la catégorie" value="{{old('name')}}" >
         </div>
         <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </form>
